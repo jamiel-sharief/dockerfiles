@@ -1,3 +1,3 @@
 # Dockerfiles collection
 
-A collection of Dockerfiles and config to rapidly setup containers. Apache, OpenSSH and MySql servers. 
+A collection of Dockerfiles and config to rapidly setup  Apache, OpenSSH and MySql containers.
