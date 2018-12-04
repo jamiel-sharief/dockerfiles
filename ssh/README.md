@@ -1,10 +1,10 @@
 # OpenSSH Docker Container
 
 1. Build the image
-`docker build -t apache .`
+`docker build -t ssh .`
 
 2. Start the container
-`docker run -p 22:22 --name mysql -d mysql`
+`docker run -p 22:22 --name ssh -d ssh`
 
 You can check its running by `docker ps`
 
