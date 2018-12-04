@@ -1,4 +1,4 @@
-# MySql Docker File
+# MySql Docker Container
 
 Run these commands from within the mysql folder.
 
