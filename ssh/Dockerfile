@@ -1,13 +1,14 @@
-FROM ubuntu:latest
+FROM ubuntu:18.04
 MAINTAINER Jamiel Sharief
 
 ENV DATE_TIMEZONE UTC
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update
-RUN apt-get  -y upgrade
 
 RUN apt-get install -y openssh-server
+RUN rm -r /var/lib/apt/lists/*
+
 RUN mkdir /var/run/sshd
 
 RUN apt-get install -y sudo
