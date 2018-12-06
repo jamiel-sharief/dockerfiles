@@ -15,8 +15,6 @@ RUN chown -R mysql:mysql /var/run/mysqld
 VOLUME /var/lib/mysql
 VOLUME /etc/mysql
 
-WORKDIR /data
-
 EXPOSE 3306
 
 CMD mysqld_safe

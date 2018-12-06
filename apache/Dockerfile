@@ -6,14 +6,15 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update
 
-RUN apt-get -y install git zip unzip curl wget
-RUN apt-get -y install apache2
+RUN apt-get -y install curl git mysql-client nano unzip wget zip
+RUN apt-get -y install apache2 libapache2-mod-php
 
 RUN a2enmod rewrite
 RUN a2enmod ssl
 
 RUN apt-get install -y php php-cli
-RUN apt-get install -y php-mysql libapache2-mod-php php-common php-curl php-pear php-mbstring php-json php-dom php-imap php-soap php-xml php-zip php-intl php-opcache php-apcu
+RUN apt-get install -y php-apcu php-cli php-common php-curl php-imap php-intl php-json php-mbstring php-mysql php-opcache php-pear php-readline php-soap php-xml php-zip
+
 RUN rm -r /var/lib/apt/lists/*
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
@@ -21,12 +22,6 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN wget https://phar.phpunit.de/phpunit-7.phar
 RUN chmod +x phpunit-7.phar
 RUN mv phpunit-7.phar /usr/local/bin/phpunit
-
-ENV APACHE_RUN_USER www-data
-ENV APACHE_RUN_GROUP www-data
-ENV APACHE_LOG_DIR /var/log/apache2
-ENV APACHE_LOCK_DIR /var/lock/apache2
-ENV APACHE_PID_FILE /var/run/apache2.pid
 
 VOLUME /var/www/html
 VOLUME /var/log/apache2

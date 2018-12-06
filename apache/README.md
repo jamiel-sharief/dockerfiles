@@ -8,7 +8,7 @@ Run these commands from within the apache folder.
 `docker build -t apache .`
 
 2. Start the container
-`docker run -p 80:80 --name apache -d apache `
+`docker run -p 80:80 --name apache -d apache`
 
 You can check its running by `docker ps`
 
