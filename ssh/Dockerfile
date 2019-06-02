@@ -4,14 +4,16 @@ MAINTAINER Jamiel Sharief
 ENV DATE_TIMEZONE UTC
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update
+# Best Practice : Cache Busting - Prevent cache issues run as one command
+# @link https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
 
-RUN apt-get install -y openssh-server
-RUN rm -r /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y \
+    openssh-server \
+    sudo \
+ && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /var/run/sshd
 
-RUN apt-get install -y sudo
 RUN useradd -d /home/developer -ms /bin/bash developer
 RUN echo 'developer:password' | chpasswd
 RUN usermod -aG sudo developer
